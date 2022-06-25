@@ -12,7 +12,7 @@
 
 .listSearch {
     flex: 1;
-    background-color: yellow;
+    background-color: #0077C0;
     padding: 10px;
     border-radius: 10px;
     position: sticky;
@@ -83,12 +83,16 @@
 
 .listSearch>button {
     padding: 10px;
-    background-color: #0071c2;
-    color: white;
+    background-color: #C7EEFF;
+    color: #0077C0;
     border: none;
     width: 100%;
     font-weight: 500;
     cursor: pointer;
+}
+
+.white {
+    color: white;
 }
 
 .listResult {

@@ -1,14 +1,16 @@
 import './navbar.css'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Link } from "react-router-dom"
 const Navbar = () => {
     return (
         <div className='navContainer'>
             <nav className='navbar'>
-                <div className="logo">
-                    <img src={process.env.PUBLIC_URL + "/Assets/brand.png"} alt="" />
-                </div>
+                <Link to="/">
+                    <div className="logo">
+                        <img src={process.env.PUBLIC_URL + "/Assets/brand.png"} alt="" />
+                    </div>
+                </Link>
                 <input type="checkbox" id='click' />
                 <label htmlFor="click" className='menu-btn'>
                     <FontAwesomeIcon icon={faBars} className="icon" />
