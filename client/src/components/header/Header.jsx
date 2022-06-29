@@ -51,12 +51,13 @@ const Header = ({ type }) => {
         navigate("/hotels", { state: { destination, dates, options } });
     }
 
-    window.addEventListener("click", (event) => {
-        if (event.target.className !== "headerSearchText" && openDate)
-            setOpenDate(!openDate)
-        if (event.target.className !== "headerSearchText" && openOptions)
-            setOpenOptions(!openOptions)
-    })
+    // window.addEventListener("click", (event) => {
+    //     console.log(event.target.className)
+    //     if (event.target.className !== "date" && openDate)
+    //         setOpenDate(!openDate)
+    //     // if (event.target.className !== "headerSearchText" && openOptions)
+    //     //     setOpenOptions(!openOptions)
+    // })
 
     return (
         <div className="header">

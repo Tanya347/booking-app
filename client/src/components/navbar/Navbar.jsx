@@ -12,7 +12,6 @@ const Navbar = () => {
         e.preventDefault();
         dispatch({ type: "LOGOUT" });
     }
-
     const handleNav = () => {
         setNavOpen(!navOpen)
     }
@@ -38,7 +37,9 @@ const Navbar = () => {
                         : (<>
                             <ul style={{ paddingLeft: "0px" }}>
                                 <li><button>Register</button></li>
-                                <li><button>Login</button></li>
+                                <Link to="/login">
+                                    <li><button>Login</button></li>
+                                </Link>
                             </ul>
                         </>)}
             </nav>
