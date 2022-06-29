@@ -1,5 +1,5 @@
 import './header.css'
-import { useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import {
     faBed,
     faCalendarDays,
@@ -15,11 +15,12 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from 'react-router-dom';
 import { SearchContext } from "../../context/SearchContext"
+import { AuthContext } from '../../context/AuthContext';
 
 const Header = ({ type }) => {
     const [openDate, setOpenDate] = useState(false);
     const [destination, setDestination] = useState("");
-
+    const { user } = useContext(AuthContext)
     const [dates, setDates] = useState([
         {
             startDate: new Date(),
@@ -50,6 +51,13 @@ const Header = ({ type }) => {
         navigate("/hotels", { state: { destination, dates, options } });
     }
 
+    window.addEventListener("click", (event) => {
+        if (event.target.className !== "headerSearchText" && openDate)
+            setOpenDate(!openDate)
+        if (event.target.className !== "headerSearchText" && openOptions)
+            setOpenOptions(!openOptions)
+    })
+
     return (
         <div className="header">
             <div className="headerContainer">
@@ -75,8 +83,6 @@ const Header = ({ type }) => {
                             <FontAwesomeIcon icon={faTaxi} />
                             <span>Airport taxis</span>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -85,7 +91,7 @@ const Header = ({ type }) => {
                     <div class="paragraph">
                         <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
                         <p className="headerDesc">Get rewarded for you travels - unlock instant savings of 10% or more with a free Stay Solutions account</p>
-                        <button className="headerBtn">Sign in / Register</button>
+                        {!user && <button className="headerBtn">Sign in / Register</button>}
                     </div>
 
                     <div className="headerSearch">

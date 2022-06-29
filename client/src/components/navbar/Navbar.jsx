@@ -2,7 +2,21 @@ import './navbar.css'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom"
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 const Navbar = () => {
+    const [navOpen, setNavOpen] = useState(false)
+    const { user, dispatch } = useContext(AuthContext)
+    const handleClick = async (e) => {
+        e.preventDefault();
+        dispatch({ type: "LOGOUT" });
+    }
+
+    const handleNav = () => {
+        setNavOpen(!navOpen)
+    }
+
     return (
         <div className='navContainer'>
             <nav className='navbar'>
@@ -12,13 +26,21 @@ const Navbar = () => {
                     </div>
                 </Link>
                 <input type="checkbox" id='click' />
-                <label htmlFor="click" className='menu-btn'>
-                    <FontAwesomeIcon icon={faBars} className="icon" />
+                <label htmlFor="click" className='menu-btn' onClick={handleNav}>
+                    {navOpen ? <FontAwesomeIcon icon={faBars} className="icon" /> : <FontAwesomeIcon icon={faXmark} className="icon" />}
                 </label>
-                <ul style={{ paddingLeft: "0px" }}>
-                    <li><button>Register</button></li>
-                    <li><button>Login</button></li>
-                </ul>
+                {
+                    user ?
+                        (<><ul style={{ paddingLeft: "0px" }}>
+                            <li><button onClick={handleClick}>Logout</button></li>
+                        </ul>
+                        </>)
+                        : (<>
+                            <ul style={{ paddingLeft: "0px" }}>
+                                <li><button>Register</button></li>
+                                <li><button>Login</button></li>
+                            </ul>
+                        </>)}
             </nav>
         </div >
     )
