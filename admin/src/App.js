@@ -2,14 +2,14 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
-import New from "./pages/new/New";
+import NewUser from "./pages/newUser/NewUser";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, userColumns } from "./datatablesource";
+import { userInputs } from "./formSource"
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -40,7 +40,7 @@ function App() {
             <Route path="users">
               <Route index element={
                 <ProtectedRoute>
-                  <List column={userColumns} />
+                  <List column={userColumns} name="User" />
                 </ProtectedRoute>
               }
               />
@@ -53,7 +53,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <New inputs={userInputs} title="Add New User" />
+                    <NewUser inputs={userInputs} title="Add New User" />
                   </ProtectedRoute>
                 }
               />
@@ -61,10 +61,10 @@ function App() {
             <Route path="hotels">
               <Route index element={
                 <ProtectedRoute>
-                  <List column={hotelColumns} />
+                  <List column={hotelColumns} name="Hotel" />
                 </ProtectedRoute>
               } />
-              <Route path=":productId" element={
+              <Route path=":hotelId" element={
                 <ProtectedRoute>
                   <Single />
                 </ProtectedRoute>
@@ -73,7 +73,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <New inputs={productInputs} title="Add New Product" />
+                    {/* <New inputs={productInputs} title="Add New Product" /> */}
                   </ProtectedRoute>
                 }
               />

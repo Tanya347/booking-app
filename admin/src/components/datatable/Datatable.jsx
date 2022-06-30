@@ -1,18 +1,17 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch.js"
 import { useEffect } from "react";
 import axios from "axios";
 
-const Datatable = ({ }) => {
+const Datatable = ({ column, name }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   console.log(path)
   const [list, setList] = useState([]);
-  const { data, loading, error } = useFetch(`/${path}`)
+  const { data } = useFetch(`/${path}`)
 
   useEffect(() => {
     setList(data);
@@ -51,7 +50,7 @@ const Datatable = ({ }) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
+        Add New {name}
         <Link to="/users/new" className="link">
           Add New
         </Link>
@@ -59,7 +58,7 @@ const Datatable = ({ }) => {
       <DataGrid
         className="datagrid"
         rows={list}
-        columns={userColumns.concat(actionColumn)}
+        columns={column.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
