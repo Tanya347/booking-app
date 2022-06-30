@@ -6,14 +6,10 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
-    const [navOpen, setNavOpen] = useState(false)
     const { user, dispatch } = useContext(AuthContext)
     const handleClick = async (e) => {
         e.preventDefault();
         dispatch({ type: "LOGOUT" });
-    }
-    const handleNav = () => {
-        setNavOpen(!navOpen)
     }
 
     return (
