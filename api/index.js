@@ -13,10 +13,10 @@ import userRoute from "./routes/users.js"
 const app = express()
 dotenv.config()
 
-
+// 'mongodb://localhost:27017/booking'
 const connect = async () => {
     try {
-        await mongoose.connect(process.env.MONGO);
+        await mongoose.connect('mongodb://localhost:27017/booking' || process.env.MONGO);
         console.log("Database connected")
     } catch (error) {
         throw (error);
