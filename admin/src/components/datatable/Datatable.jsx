@@ -21,7 +21,7 @@ const Datatable = ({ column, name }) => {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
     } catch (err) {
-
+      console.log(err)
     }
   };
 
@@ -51,7 +51,7 @@ const Datatable = ({ column, name }) => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New {name}
-        <Link to="/users/new" className="link">
+        <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
       </div>
