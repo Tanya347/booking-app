@@ -23,6 +23,8 @@ const connect = async () => {
     }
 }
 
+app.get('/', (req, res) => { res.send('Hello from express') })
+
 //middlewares
 
 app.use(cors());
