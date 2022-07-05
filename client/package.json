@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8800/api",
+  "proxy": "https://stay-solutions.herokuapp.com/api",
   "eslintConfig": {
     "extends": [
       "react-app",
