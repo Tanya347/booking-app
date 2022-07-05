@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../../url"
+const API_URL = "https://stay-solutions.herokuapp.com/api"
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
