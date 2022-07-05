@@ -17,7 +17,6 @@ const AuthReducer = (state, action) => {
                 loading: true,
                 error: null
             };
-            console.log(state.user)
 
         case "LOGIN_SUCCESS":
             return {

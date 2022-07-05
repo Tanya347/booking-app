@@ -1,5 +1,5 @@
 import './header.css'
-import { createContext, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import {
     faBed,
     faCalendarDays,
