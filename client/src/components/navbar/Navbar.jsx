@@ -21,8 +21,8 @@ const Navbar = () => {
                     </div>
                 </Link>
                 <input type="checkbox" id='click' />
-                <label htmlFor="click" className='menu-btn' onClick={handleNav}>
-                    {navOpen ? <FontAwesomeIcon icon={faBars} className="icon" /> : <FontAwesomeIcon icon={faXmark} className="icon" />}
+                <label htmlFor="click" className='menu-btn' >
+                    <FontAwesomeIcon icon={faBars} className="icon" />
                 </label>
                 {
                     user ?
