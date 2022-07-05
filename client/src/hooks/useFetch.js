@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-const API_URL = "https://stay-solutions.herokuapp.com/api"
 import axios from "axios";
+const API_URL = "https://stay-solutions.herokuapp.com/api"
+
 axios.defaults.withCredentials = true;
 
 const useFetch = (url) => {
