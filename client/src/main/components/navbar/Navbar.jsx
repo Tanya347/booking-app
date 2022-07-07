@@ -36,6 +36,9 @@ const Navbar = () => {
                                 <Link to="/login">
                                     <li><button>Login</button></li>
                                 </Link>
+                                <Link to="admin/login">
+                                    <li><button>Admin</button></li>
+                                </Link>
                             </ul>
                         </>)}
             </nav>
