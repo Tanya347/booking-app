@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 import "./reserve.css";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 import { useContext, useState } from "react";
-import { SearchContext } from "../../context/SearchContext";
+import { SearchContext } from "../../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -53,7 +53,8 @@ const Reserve = ({ setOpen, hotelId }) => {
         try {
             await Promise.all(
                 selectedRooms.map((roomId) => {
-                    const res = axios.put(`https://stay-solutions.herokuapp.com/api/rooms/availability/${roomId}`, {
+                    // const res = axios.put(`https://stay-solutions.herokuapp.com/api/rooms/availability/${roomId}`, {
+                    const res = axios.put(`/rooms/availability/${roomId}`, {
                         dates: alldates,
                     });
                     return res.data;

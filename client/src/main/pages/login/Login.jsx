@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../../context/AuthContext'
 import "./login.css"
 
 function Login() {
@@ -20,7 +20,8 @@ function Login() {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post("https://stay-solutions.herokuapp.com/api/auth/login", credentials)
+            // const res = await axios.post("https://stay-solutions.herokuapp.com/api/auth/login", credentials)
+            const res = await axios.post("/auth/login", credentials)
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details })
             navigate("/")
         } catch (err) {

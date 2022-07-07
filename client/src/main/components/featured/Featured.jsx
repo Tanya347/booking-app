@@ -1,5 +1,5 @@
 import './featured.css'
-import useFetch from '../../hooks/useFetch'
+import useFetch from '../../../hooks/useFetch'
 
 const Featured = () => {
     const { data, loading } = useFetch("/hotels/countByCity?cities=Venice,Madrid,Paris")

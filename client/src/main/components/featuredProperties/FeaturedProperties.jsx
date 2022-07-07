@@ -1,5 +1,5 @@
 import "./featuredProperties.css";
-import useFetch from "../../hooks/useFetch"
+import useFetch from "../../../hooks/useFetch"
 
 const FeaturedProperties = () => {
     const { data, loading } = useFetch("/hotels?featured=true&limit=4")
