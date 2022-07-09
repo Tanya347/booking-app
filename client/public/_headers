@@ -1,2 +1,2 @@
 /*
-  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Origin: https://stay-solutions.herokuapp.com, https://api.cloudinary.com/v1_1/dnzkakna0/image/upload
