@@ -23,7 +23,7 @@ const NewUser = ({ inputs, title }) => {
       const uploadRes = await axios.post(
         "https://api.cloudinary.com/v1_1/dnzkakna0/image/upload",
         data, {
-        withcredentials: false
+        'Access-Control-Allow-Origin': '*'
       }
       )
       const { url } = uploadRes.data;
