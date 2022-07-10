@@ -28,11 +28,11 @@ app.get('/', (req, res) => { res.send('Hello from express') })
 //middlewares
 
 
-app.use(cors({
-    origin: "https://stay-solutions.netlify.app",
-    credentials: true
-}));
-// app.use(cors());
+// app.use(cors({
+//     origin: "https://stay-solutions.netlify.app",
+//     credentials: true
+// }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 

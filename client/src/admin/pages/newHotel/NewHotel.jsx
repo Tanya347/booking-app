@@ -36,10 +36,10 @@ const New = ({ inputs, title }) => {
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
             "https://api.cloudinary.com/v1_1/dnzkakna0/image/upload",
-            data,
-            {
-              withCredentials: false
-            }
+            // data,
+            // {
+            //   withCredentials: false
+            // }
           );
           const { url } = uploadRes.data;
           return url;
@@ -52,8 +52,8 @@ const New = ({ inputs, title }) => {
         photos: list
       }
 
-      // await axios.post("/hotels", newhotel);
-      await axios.post("https://stay-solutions.herokuapp.com/api/hotels", newhotel);
+      await axios.post("/hotels", newhotel);
+      // await axios.post("https://stay-solutions.herokuapp.com/api/hotels", newhotel);
 
     } catch (err) {
       console.log(err)

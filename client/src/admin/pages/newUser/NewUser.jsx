@@ -32,7 +32,8 @@ const NewUser = ({ inputs, title }) => {
         ...info, img: url
       }
 
-      axios.post("https://stay-solutions.herokuapp.com/api/auth/register", newuser)
+      // axios.post("https://stay-solutions.herokuapp.com/api/auth/register", newuser)
+      axios.post("/auth/register", newuser)
     } catch (error) {
       console.log(error)
     }

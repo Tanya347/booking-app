@@ -28,6 +28,7 @@ const Header = ({ type }) => {
             key: 'selection'
         }
     ]);
+    const [days, setDays] = useState(0);
 
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
@@ -47,9 +48,24 @@ const Header = ({ type }) => {
     }
     const { dispatch } = useContext(SearchContext)
     const handleSearch = () => {
-        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } })
-        navigate("/hotels", { state: { destination, dates, options } });
+        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options, days } })
+        navigate("/hotels", { state: { destination, dates, options, days } });
     }
+
+    const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    function dayDifference(date1, date2) {
+        const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+        return diffDays;
+    }
+
+
+    const handleDates = (item) => {
+        setDates([item.selection])
+        const ds = dayDifference(item.selection.endDate, item.selection.startDate);
+        setDays(ds);
+    }
+
 
     // window.addEventListener("click", (event) => {
     //     console.log(event.target.className)
@@ -105,7 +121,7 @@ const Header = ({ type }) => {
                             <span onClick={() => setOpenDate(!openDate)} className='headerSearchText'>{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
                             {openDate && <DateRange
                                 editableDateInputs={true}
-                                onChange={item => setDates([item.selection])}
+                                onChange={handleDates}
                                 moveRangeOnFirstSelection={false}
                                 ranges={dates}
                                 className="date"

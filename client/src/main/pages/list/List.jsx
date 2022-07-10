@@ -20,7 +20,6 @@ const List = () => {
 
     const { data, loading, reFetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`)
     const handleChange = () => reFetch();
-
     return (
         <div>
             <Navbar />

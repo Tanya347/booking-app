@@ -21,8 +21,8 @@ const NewRoom = ({ inputs, title }) => {
     const roomNumbers = rooms.split(",").map((room) =>
       ({ number: room }));
     try {
-      // await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers })
-      await axios.post(`https://stay-solutions.herokuapp.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
+      await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers })
+      // await axios.post(`https://stay-solutions.herokuapp.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
     } catch (err) {
       console.log(err)
     }

@@ -18,7 +18,8 @@ const Datatable = ({ column, name }) => {
   }, [data])
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://stay-solutions.herokuapp.com/api/${path}/${id}`);
+      // await axios.delete(`https://stay-solutions.herokuapp.com/api/${path}/${id}`);
+      await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
     } catch (err) {
       console.log(err)
