@@ -42,9 +42,7 @@ const Datatable = ({ column, name }) => {
     }
   };
 
-  const handleView = (id) => {
-    navigate(`/${id}`);
-  }
+
 
   console.log(list)
 

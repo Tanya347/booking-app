@@ -1,15 +1,15 @@
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
+// import Chart from "../../components/chart/Chart";
+// import List from "../../components/table/Table";
 import useFetch from "../../../hooks/useFetch";
 import { useLocation } from "react-router-dom";
 
 const Single = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[3];
-  const { data, loading } = useFetch(`/users/${id}`)
+  const { data } = useFetch(`/users/${id}`)
 
   return (
     <div className="single">
