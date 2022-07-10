@@ -29,7 +29,7 @@ app.get('/', (req, res) => { res.send('Hello from express') })
 
 
 app.use(cors({
-    origin: ["https://stay-solutions.netlify.app", "https://api.cloudinary.com/v1_1/dnzkakna0/image/upload"],
+    origin: "https://stay-solutions.netlify.app",
     credentials: true
 }));
 // app.use(cors());
