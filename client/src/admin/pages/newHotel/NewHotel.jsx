@@ -5,12 +5,13 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import useFetch from "../../../hooks/useFetch"
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
-
+  const navigate = useNavigate();
   const { data, loading } = useFetch("/rooms")
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -36,10 +37,10 @@ const New = ({ inputs, title }) => {
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
             "https://api.cloudinary.com/v1_1/dnzkakna0/image/upload",
-            // data,
-            // {
-            //   withCredentials: false
-            // }
+            data,
+            {
+              withCredentials: false
+            }
           );
           const { url } = uploadRes.data;
           return url;
@@ -52,9 +53,9 @@ const New = ({ inputs, title }) => {
         photos: list
       }
 
-      await axios.post("/hotels", newhotel);
-      // await axios.post("https://stay-solutions.herokuapp.com/api/hotels", newhotel);
-
+      // await axios.post("/hotels", newhotel);
+      await axios.post("https://stay-solutions.herokuapp.com/api/hotels", newhotel);
+      navigate(-1)
     } catch (err) {
       console.log(err)
     }

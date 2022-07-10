@@ -4,12 +4,13 @@ import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewRoom = ({ inputs, title }) => {
   const [info, setInfo] = useState({});
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
-
+  const navigate = useNavigate();
   const { data, loading } = useFetch("/hotels");
 
   const handleChange = (e) => {
@@ -21,8 +22,10 @@ const NewRoom = ({ inputs, title }) => {
     const roomNumbers = rooms.split(",").map((room) =>
       ({ number: room }));
     try {
-      await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers })
-      // await axios.post(`https://stay-solutions.herokuapp.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
+      // await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers })
+
+      await axios.post(`https://stay-solutions.herokuapp.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
+      navigate(-1)
     } catch (err) {
       console.log(err)
     }

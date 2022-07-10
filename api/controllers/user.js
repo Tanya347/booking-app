@@ -1,6 +1,15 @@
 import User from "../models/User.js"
+// import cloudinary from "cloudinary"
 
-//update User
+// const cloud = cloudinary.v2
+
+// cloud.config({
+//     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_KEY,
+//     api_secret: process.env.CLOUDINARY_SECRET
+// })
+
+// //update User
 
 export const updateUser = async (req, res, next) => {
     try {
@@ -15,6 +24,14 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
     try {
+
+        // const user = await User.findById(req.params.id)
+        // const file = user.cloud_id.split("/")[1]
+
+        // cloud.uploader.destroy(file, function (error) {
+        //     console.log(error)
+        // })
+        // //update User
         await User.findByIdAndDelete(req.params.id)
         res.status(200).json("User has been deleted")
     } catch (err) {

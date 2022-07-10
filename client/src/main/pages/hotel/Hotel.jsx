@@ -16,7 +16,7 @@ import useFetch from "../../../hooks/useFetch"
 import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../../context/SearchContext";
 import { AuthContext } from "../../../context/AuthContext";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const Hotel = () => {
     const location = useLocation()
@@ -128,7 +128,7 @@ const Hotel = () => {
                         </div>
                         <div className="hotelDetails">
                             <div className="hotelDetailsTexts">
-                                <h1 className="hotelTitle">{data.title}</h1>
+                                {/* <h1 className="hotelTitle">{data.title}</h1> */}
                                 <p className="hotelDesc">
                                     {data.desc}
                                 </p>

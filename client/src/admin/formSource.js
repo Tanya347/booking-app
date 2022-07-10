@@ -68,12 +68,6 @@ export const hotelInputs = [
     placeholder: "500",
   },
   {
-    id: "title",
-    label: "Title",
-    type: "text",
-    placeholder: "The best Hotel",
-  },
-  {
     id: "desc",
     label: "Description",
     type: "text",

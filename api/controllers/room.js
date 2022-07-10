@@ -6,7 +6,7 @@ import Hotel from "../models/Hotel.js";
 export const createRoom = async (req, res, next) => {
     const hotelId = req.params.hotelid;
     const newRoom = new Room(req.body);
-
+    newRoom.hotelId = hotelId
     try {
         const savedRoom = await newRoom.save();
 
@@ -16,7 +16,6 @@ export const createRoom = async (req, res, next) => {
         catch (err) {
             next(err)
         }
-
         res.status(200).json(savedRoom);
     }
     catch (err) {

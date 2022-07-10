@@ -4,11 +4,12 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const NewUser = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   }
@@ -27,19 +28,20 @@ const NewUser = ({ inputs, title }) => {
       }
       )
       const { url } = uploadRes.data;
-
+      const { public_id } = uploadRes.data;
       const newuser = {
-        ...info, img: url
+        ...info, img: url, cloud_id: public_id
       }
 
-      // axios.post("https://stay-solutions.herokuapp.com/api/auth/register", newuser)
-      axios.post("/auth/register", newuser)
+      axios.post("https://stay-solutions.herokuapp.com/api/auth/register", newuser)
+      // axios.post("http://localhost:8800/api/auth/register", newuser)
+      navigate(-1)
+
     } catch (error) {
       console.log(error)
     }
   }
 
-  console.log(info)
   return (
     <div className="new">
       <Sidebar />

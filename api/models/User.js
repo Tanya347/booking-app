@@ -18,6 +18,9 @@ const UserSchema = new mongoose.Schema({
     img: {
         type: String,
     },
+    cloud_id: {
+        type: String,
+    },
     city: {
         type: String,
         required: true,
