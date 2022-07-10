@@ -36,7 +36,10 @@ const New = ({ inputs, title }) => {
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
             "https://api.cloudinary.com/v1_1/dnzkakna0/image/upload",
-            data
+            data,
+            {
+              withCredentials: false
+            }
           );
           const { url } = uploadRes.data;
           return url;
