@@ -24,7 +24,7 @@ const NewRoom = ({ inputs, title }) => {
     try {
       // await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers })
 
-      await axios.post(`https://stay-solutions.herokuapp.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
+      await axios.post(`https://stay-solutions.onrender.com/api/rooms/${hotelId}`, { ...info, roomNumbers })
       navigate(-1)
     } catch (err) {
       console.log(err)

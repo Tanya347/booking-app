@@ -33,7 +33,7 @@ const NewUser = ({ inputs, title }) => {
         ...info, img: url, cloud_id: public_id
       }
 
-      axios.post("https://stay-solutions.herokuapp.com/api/auth/register", newuser)
+      axios.post("https://stay-solutions.onrender.com/api/auth/register", newuser)
       // axios.post("http://localhost:8800/api/auth/register", newuser)
       navigate(-1)
 

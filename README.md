@@ -115,7 +115,7 @@ ensure that there's no trailing /
 Wherever you're using the url of localhost server, replace it with link of server deployed on heroku
 Comment the first line out and add url to second to a copied line. Uncomment first line and comment second line for development
 `const res = axios.put(`/rooms/availability/${roomId}``
-const res = axios.put(`https://stay-solutions.herokuapp.com/api/rooms/availability/${roomId}``
+const res = axios.put(`https://stay-solutions.onrender.com/api/rooms/availability/${roomId}``
 
 ### 5. Headers
 Add this piece of code after creating a file by the name _headers in the public directory of react app

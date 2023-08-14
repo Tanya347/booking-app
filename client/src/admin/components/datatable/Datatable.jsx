@@ -30,10 +30,10 @@ const Datatable = ({ column, name }) => {
         }
         // console.log(index)
         // await axios.delete(`http://localhost:8800/api/${path}/${id}/${data[index].hotelId}`);
-        await axios.delete(`https://stay-solutions.herokuapp.com/api/${path}/${id}/${data[index].hotelId}`);
+        await axios.delete(`https://stay-solutions.onrender.com/api/${path}/${id}/${data[index].hotelId}`);
       } else {
         // await axios.delete(`http://localhost:8800/api/${path}/${id}`);
-        await axios.delete(`https://stay-solutions.herokuapp.com/api/${path}/${id}`);
+        await axios.delete(`https://stay-solutions.onrender.com/api/${path}/${id}`);
       }
       setList(list.filter((item) => item._id !== id));
     } catch (err) {

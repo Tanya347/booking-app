@@ -20,7 +20,7 @@ function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("https://stay-solutions.herokuapp.com/api/auth/login", credentials)
+      const res = await axios.post("https://stay-solutions.onrender.com/api/auth/login", credentials)
 
       // const res = await axios.post("/auth/login", credentials)
       if (res.data.isAdmin) {

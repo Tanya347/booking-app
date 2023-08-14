@@ -54,7 +54,7 @@ const New = ({ inputs, title }) => {
       }
 
       // await axios.post("/hotels", newhotel);
-      await axios.post("https://stay-solutions.herokuapp.com/api/hotels", newhotel);
+      await axios.post("https://stay-solutions.onrender.com/api/hotels", newhotel);
       navigate(-1)
     } catch (err) {
       console.log(err)
