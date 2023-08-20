@@ -1,5 +1,5 @@
 import "./newRoom.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
+// import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import useFetch from "../../../hooks/useFetch";
@@ -33,7 +33,7 @@ const NewRoom = ({ inputs, title }) => {
 
   return (
     <div className="new">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="newContainer">
         <Navbar />
         <div className="top">

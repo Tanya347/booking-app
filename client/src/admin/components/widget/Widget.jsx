@@ -1,23 +1,24 @@
 import "./widget.scss";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import BusinessIcon from '@mui/icons-material/Business';
+import HotelIcon from '@mui/icons-material/Hotel';
+import AddIcon from '@mui/icons-material/Add';
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   let data;
 
   //temporary
   const amount = 100;
-  const diff = 20;
 
   switch (type) {
     case "user":
       data = {
         title: "USERS",
         isMoney: false,
-        link: "See all users",
+        link: "View all users",
+        viewUrl: "/admin/users",
+        createUrl: "/admin/users/new",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -29,13 +30,15 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "hotel":
       data = {
-        title: "ORDERS",
+        title: "HOTELS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all hotels",
+        viewUrl: "/admin/hotels",
+        createUrl: "/admin/hotels/new",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <BusinessIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
@@ -45,35 +48,37 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "earning":
+    case "room":
       data = {
-        title: "EARNINGS",
+        title: "ROOMS",
         isMoney: true,
-        link: "View net earnings",
+        link: "View all rooms",
+        viewUrl: "/admin/rooms",
+        createUrl: "/admin/rooms/new",
         icon: (
-          <MonetizationOnOutlinedIcon
+          <HotelIcon
             className="icon"
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
       };
       break;
-    case "balance":
-      data = {
-        title: "BALANCE",
-        isMoney: true,
-        link: "See details",
-        icon: (
-          <AccountBalanceWalletOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
-            }}
-          />
-        ),
-      };
-      break;
+    // case "balance":
+    //   data = {
+    //     title: "BALANCE",
+    //     isMoney: true,
+    //     link: "See details",
+    //     icon: (
+    //       <AccountBalanceWalletOutlinedIcon
+    //         className="icon"
+    //         style={{
+    //           backgroundColor: "rgba(128, 0, 128, 0.2)",
+    //           color: "purple",
+    //         }}
+    //       />
+    //     ),
+    //   };
+    //   break;
     default:
       break;
   }
@@ -85,13 +90,17 @@ const Widget = ({ type }) => {
         <span className="counter">
           {data.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.viewUrl} style={{ textDecoration: "none" }}>
+          <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-          {diff} %
-        </div>
+        <Link to={data.createUrl} style={{ textDecoration: "none" }}>
+          <div className="percentage positive" >
+            <AddIcon />
+            Create New
+          </div>
+        </Link>
         {data.icon}
       </div>
     </div>

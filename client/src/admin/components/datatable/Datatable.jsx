@@ -10,7 +10,7 @@ import axios from "axios";
 const Datatable = ({ column, name }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  console.log(path)
+  // console.log(path)
   const [list, setList] = useState([]);
   const { data } = useFetch(`/${path}`)
 
@@ -53,9 +53,9 @@ const Datatable = ({ column, name }) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            {path === "users" && <Link to={`/admin/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
+            {/* {path === "users" && <Link to={`/admin/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
-            </Link>}
+            </Link>} */}
 
             <div
               className="deleteButton"

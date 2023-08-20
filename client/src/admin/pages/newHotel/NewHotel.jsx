@@ -1,5 +1,5 @@
 import "./newHotel.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
+// import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import useFetch from "../../../hooks/useFetch"
@@ -63,7 +63,7 @@ const New = ({ inputs, title }) => {
 
   return (
     <div className="new">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="newContainer">
         <Navbar />
         <div className="top">
