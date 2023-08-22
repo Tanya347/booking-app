@@ -105,11 +105,11 @@ const Header = ({ type }) => {
             </div>
             {type !== "list" &&
                 <>
-                    <div class="paragraph">
+                    {/* <div class="paragraph">
                         <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
                         <p className="headerDesc">Get rewarded for you travels - unlock instant savings of 10% or more with a free Stay Solutions account</p>
                         {!user && <button className="headerBtn">Sign in / Register</button>}
-                    </div>
+                    </div> */}
 
                     <div className="headerSearch">
                         <div className="headerSearchItem">
