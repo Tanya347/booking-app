@@ -25,7 +25,7 @@ const New = ({ inputs, title }) => {
     setRooms(value)
   }
 
-  console.log(files)
+  // console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault();

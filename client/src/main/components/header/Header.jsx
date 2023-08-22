@@ -20,7 +20,7 @@ import { AuthContext } from '../../../context/AuthContext';
 const Header = ({ type }) => {
     const [openDate, setOpenDate] = useState(false);
     const [destination, setDestination] = useState("");
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
     const [dates, setDates] = useState([
         {
             startDate: new Date(),

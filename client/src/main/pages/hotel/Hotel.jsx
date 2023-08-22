@@ -45,7 +45,7 @@ const Hotel = () => {
     //     setDays(ds);
     // }, days)
 
-    console.log(options)
+    // console.log(options)
 
     const handleOpen = (i) => {
         setSlideNumber(i);
@@ -54,11 +54,11 @@ const Hotel = () => {
 
     const handleMove = (direction) => {
         let newSlideNumber;
-
+        let size = data.photos.length;
         if (direction === "l") {
-            newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
+            newSlideNumber = slideNumber === 0 ? size - 1 : slideNumber - 1;
         } else {
-            newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
+            newSlideNumber = slideNumber === size - 1 ? 0 : slideNumber + 1;
         }
 
         setSlideNumber(newSlideNumber)
