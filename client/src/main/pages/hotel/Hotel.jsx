@@ -29,7 +29,7 @@ const Hotel = () => {
     const { user } = useContext(AuthContext)
     // const [days, setDays] = useState();
 
-    const { options, days } = useContext(SearchContext)
+    // const { options, days } = useContext(SearchContext)
 
 
     // const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
@@ -102,7 +102,7 @@ const Hotel = () => {
                         </div>
                     )}
                     <div className="hotelWrapper">
-                        <button className="bookNow">Reserve or Book Now!</button>
+                        <button className="bookNow" onClick={handleClick}>Reserve or Book Now!</button>
                         <h1 className="hotelTitle">{data.name}</h1>
                         <div className="hotelAddress">
                             <FontAwesomeIcon icon={faLocationDot} />
@@ -111,6 +111,12 @@ const Hotel = () => {
                         <span className="hotelDistance">
                             Excellent location – {data.distance}m from center
                         </span>
+                            <div className="hotelDetailsTexts">
+                                {/* <h1 className="hotelTitle">{data.title}</h1> */}
+                                <p className="hotelDesc">
+                                    {data.desc}
+                                </p>
+                            </div>
                         <span className="hotelPriceHighlight">
                             Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi
                         </span>
@@ -127,13 +133,7 @@ const Hotel = () => {
                             ))}
                         </div>
                         <div className="hotelDetails">
-                            <div className="hotelDetailsTexts">
-                                {/* <h1 className="hotelTitle">{data.title}</h1> */}
-                                <p className="hotelDesc">
-                                    {data.desc}
-                                </p>
-                            </div>
-                            <div className="hotelDetailsPrice">
+                            {/* <div className="hotelDetailsPrice">
                                 <h1>Perfect for a {days}-night stay!</h1>
                                 <span>
                                     Located in the real heart of Krakow, this property has an
@@ -142,8 +142,8 @@ const Hotel = () => {
                                 <h2>
                                     <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
                                 </h2>
-                                <button onClick={handleClick}>Reserve or Book Now!</button>
-                            </div>
+                                <button>Reserve or Book Now!</button>
+                            </div> */}
                         </div>
                     </div>
                     <MailList />
